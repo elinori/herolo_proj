@@ -1,0 +1,77 @@
+<a class="knockout" href="http://mksht.crisnoble.com" rel="Like cool shit? visit my site">
+
+  Books</a>
+<p>
+  <mat-form-field class="filter" appearance="outline">
+    <mat-label style="font-weight: bold">filter</mat-label>
+    <input [(ngModel)]="Search" matInput placeholder="enter name book" required>
+  </mat-form-field>
+</p>
+<div *ngIf="isSaved" class="alert alert-success mmesage">
+  <strong>DONE</strong> DONE.
+</div>
+<div *ngIf="isError" class="alert alert-danger mmesage  ">
+  <strong>Error</strong> Sorry this book name exsist!.
+</div>
+<div style="height: 100%">
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let book of books |filter:Search let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        </mat-panel-title>
+        <mat-panel-description (click)="onEdite(book)">
+
+          {{book.title}}
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-panel-description>
+        <img class="image" src={{book.pic}} alt="">
+
+        <div  class="card card2">
+
+          <div class="card-body">
+
+            <h3  class="card-title">{{book.title}}</h3>
+            <form [formGroup]="profileForm" class="example-form">
+
+              <h5 class="card-title">auther:</h5>
+              <p *ngIf="!isEdite" class="card-text">{{book.author}}</p>
+              <mat-form-field *ngIf="isEdite" class="example-full-width">
+                <input matInput value={{book.author}} formControlName="author">
+              </mat-form-field>
+
+              <h5  class="card-title">published:</h5>
+              <p *ngIf="!isEdite" class="card-text">{{book.Published}}</p>
+
+              <mat-form-field *ngIf="isEdite" class="example-full-width">
+                <input matInput value={{book.Published}} formControlName="published">
+              </mat-form-field>
+
+              <div *ngIf="!profileForm.valid">wrong Date or Auther name!!!</div>
+
+            </form>
+            <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#exampleModal" (click)="editBook(profileForm,book)"
+              [disabled]="!profileForm.valid">Edite Book</button>
+          </div>
+
+        </div>
+      </mat-panel-description>
+
+      <mat-panel-description>
+      </mat-panel-description>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+<!-- Modal -->
+<div *ngIf="isshow && !isEdite">
+  <app-pop-up (newBook)="addBook($event)" (deleteBook)="deleteBook($event)" (savebook)="saveBook($event)"></app-pop-up>
+</div>

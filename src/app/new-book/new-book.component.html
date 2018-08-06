@@ -1,0 +1,28 @@
+<form  [formGroup]="profileForm">
+
+  <p style="margin-top:4%">
+    <mat-form-field appearance="legacy">
+      <mat-label>picture </mat-label>
+      <input matInput formControlName="pic" required placeholder="הכנס נתיב לתמונה">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>author</mat-label>
+      <input matInput formControlName="author" placeholder="Placeholder" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>published</mat-label>
+      <input formControlName="Published" matInput placeholder="Placeholder" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>title</mat-label>
+      <input formControlName="title" matInput placeholder="Placeholder" required>
+    </mat-form-field>
+  </p>
+  <button type="button" class="btn btn-primary" [disabled]="!profileForm.valid" data-dismiss="modal" (click)="addBook(profileForm)">Save book</button>
+</form>

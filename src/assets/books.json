@@ -1,0 +1,55 @@
+[{
+"id":1,
+"author":"Lewis Carrol",
+"Published":"01/08/2000",
+"title":"Alice in Wenderland",
+"pic":"./assets/img/alice.jpg"
+
+},
+{
+ "id":2,
+"author":"Maracia Brown",
+"Published":"07/04/1980",
+"title":"Cindarella",
+"pic":"./assets/img/cindarella.jpg"
+
+},
+{
+"id":3,
+"author":"Joanna Rowling",
+"Published":"07/04/1989",
+"title":"Harrey Poter",
+"pic":"./assets/img/HarryPotter_4.jpg"
+
+
+},
+{
+ "id":4,
+"author":"Matthew Barrie",
+"Published":"07/05/1999",
+"title":"Peter pen",
+"pic":"./assets/img/peter_pan.jpg"
+
+
+},
+{
+"id":5,
+"author":"Nicolas Sparks",
+"Published":"07/05/2010",
+"title":"The notebook",
+"pic":"./assets/img/the_notebook.jpg"
+
+
+},
+{
+ "id":6,
+"author":"Rhonda Byrne",
+"Published":"07/05/1989",
+"title":"The secret",
+"pic":"./assets/img/the_secrert.jpg"
+
+
+}
+
+
+]
